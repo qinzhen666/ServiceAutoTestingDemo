@@ -19,4 +19,6 @@ public class Contact extends Restful {
                 .queryParam("access_token", Wework.getToken())
                 .contentType(ContentType.JSON);
     }
+
+
 }

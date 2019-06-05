@@ -75,4 +75,14 @@ class MemberTest {
         member.delete(userid).then().statusCode(200).body("errcode",equalTo(0));
         member.read(userid).then().statusCode(200).body("errcode",equalTo(60111));//用户不存在返回60111
     }
+
+    @Test
+    void getUserSimplelist() {
+        member.getUserSimplelist("2","1").then().statusCode(200).body("errcode",equalTo(0));
+    }
+
+    @Test
+    void batchdelete() {
+        member.batchdelete().then().statusCode(200).body("errcode",equalTo(0));
+    }
 }
