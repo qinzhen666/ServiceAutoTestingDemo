@@ -29,13 +29,13 @@ class MemberTest {
         map.put("userid",nameNew);
         map.put("name",nameNew);
         map.put("department", Arrays.asList(1,2));
-        map.put("mobile",151 + member.random.substring(0,7) + ra.nextInt(9));
-        map.put("email",member.random.substring(0,7)+ ra.nextInt(9) + "@qq.com");
+        map.put("mobile",151 + member.random.substring(0+5,8+5) );
+        map.put("email",member.random.substring(0+5,8+5) + "@qq.com");
         member.create(map).then().statusCode(200).body("errcode",equalTo(0));
     }
 
     @Test
-    static HashMap createForRead(String name){
+    static HashMap createForTest(String name){
         String nameNew = name + member.random;
         HashMap<String,Object> map = new HashMap<>();
         map.put("userid",nameNew);
@@ -49,10 +49,30 @@ class MemberTest {
     @Test
     void read() {
         //path("department.find{it.name=='"+ oldName +"'}.id").toString();
-        HashMap map = MemberTest.createForRead("readUser_");
+        HashMap map = MemberTest.createForTest("readUser_");
         member.create(map);
         String userid = String.valueOf(map.get("userid"));
         System.out.println("userID是" + userid);
         member.read(userid).then().statusCode(200).body("errcode",equalTo(0));
+    }
+
+    @Test
+    void update() {
+        HashMap map = MemberTest.createForTest("updateUser_");
+        member.create(map);
+        String userid = String.valueOf(map.get("userid"));
+        System.out.println("userID是" + userid);
+        map.put("alias","updateman");
+        member.update(map).then().statusCode(200).body("errcode",equalTo(0));
+        member.read(userid).then().statusCode(200).body("alias",equalTo("updateman"));
+    }
+
+    @Test
+    void delete() {
+        HashMap map = MemberTest.createForTest("deleteUser");
+        member.create(map);
+        String userid = String.valueOf(map.get("userid"));
+        member.delete(userid).then().statusCode(200).body("errcode",equalTo(0));
+        member.read(userid).then().statusCode(200).body("errcode",equalTo(60111));//用户不存在返回60111
     }
 }
