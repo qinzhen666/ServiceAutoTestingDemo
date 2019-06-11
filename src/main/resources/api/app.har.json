@@ -1,0 +1,642 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [],
+    "entries": [
+      {
+        "startedDateTime": "2019-06-11T08:26:28.982Z",
+        "time": 225.2939999971548,
+        "request": {
+          "method": "POST",
+          "url": "https://work.weixin.qq.com/api/devtools/devhandler.php?tid=67&access_token=a-ReV9dUDjuNa4wOZyl_eiHxu7RglIPTvUKKjg_B5hiRGQB-ugUdiRu9o7NIUdiA2OKhBB9wrqaQUfJjRyL28CORMzzgP4aYmT-Tcvid3MdXpmqASuty17mNPovNFjD145iglhGW3yUtFWwuURm8E8R6VgQxce5OV6s6FFe9FHARSpdaXt0vR-mbuh-bUfBchE5RDPiW_LhhM0vazEXuEA&f=json",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": ":path",
+              "value": "/api/devtools/devhandler.php?tid=67&access_token=a-ReV9dUDjuNa4wOZyl_eiHxu7RglIPTvUKKjg_B5hiRGQB-ugUdiRu9o7NIUdiA2OKhBB9wrqaQUfJjRyL28CORMzzgP4aYmT-Tcvid3MdXpmqASuty17mNPovNFjD145iglhGW3yUtFWwuURm8E8R6VgQxce5OV6s6FFe9FHARSpdaXt0vR-mbuh-bUfBchE5RDPiW_LhhM0vazEXuEA&f=json"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "cookie",
+              "value": "pgv_pvi=2420015104; RK=nBZ1nHvEOM; ptcz=2409d5a8e82c61ee05e35a776eab9dcd33e216ad6b7fc258aa773fd1bf2f417d; pgv_pvid=9078702240; eas_sid=H1i5n4U26317k6F7k748T219S2; luin=o0376057520; lskey=0001000015d5e7e390fc27535440b72e61d3e275787524ea0f75e0daeb1628c807f1711a6b3f30fc64ce69ac; _ga=GA1.2.1151599427.1559221363; _gid=GA1.2.271374682.1560153926; pgv_info=ssid=s1271298625; wwrtx.ref=direct; wwrtx.refid=843577564600627; Hm_lvt_9364e629af24cb52acc78b43e8c9f77d=1559714155,1559744678,1560153926,1560215514; Hm_lpvt_9364e629af24cb52acc78b43e8c9f77d=1560215514; wwrtx.ltype=1; wxpay.corpid=1970325047075110; wxpay.vid=1688851247419313; wwrtx.vid=1688851247419313; wwrtx.logined=true; wwrtx.d2st=a911012; wwrtx.sid=0Ur3QJ8bY3XpZL9u1TGYYY_d0-opPmilAjfBq53lt5wbhAr9ZFC4TElbc6igrtHG; wwrtx.vst=rC8JY7oXUUPHufXqq910DKT-hBB24mTxy8YIBpI1eez8pe4Bi--yei26XEp8cOAIajZtX5hUbkUA0MiC5ltxa6H8NDf-xUj-ay3A428Dnt5aVHsd7xazL9qH6Z43QRdqEpFQFFNbe69KZCIcDoo2bgAkZcw2b9QbRUful6UFIrLHY93n9JIM64srK30wu8uS_Sq1NKojsnlmIlPTG0NS1txPaRcAxr7c9Hhj8nr_DXEMnaitelZZFruDFGoatK_JPqbOoMqtAmFWhabwwwM3zg"
+            },
+            {
+              "name": "origin",
+              "value": "https://work.weixin.qq.com"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "accept-language",
+              "value": "zh-CN,zh;q=0.9"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+            },
+            {
+              "name": "accept",
+              "value": "application/json, text/javascript, */*; q=0.01"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": ":authority",
+              "value": "work.weixin.qq.com"
+            },
+            {
+              "name": "x-requested-with",
+              "value": "XMLHttpRequest"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": "referer",
+              "value": "https://work.weixin.qq.com/api/devtools/devtool.php"
+            },
+            {
+              "name": "content-length",
+              "value": "0"
+            },
+            {
+              "name": ":method",
+              "value": "POST"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "tid",
+              "value": "67"
+            },
+            {
+              "name": "access_token",
+              "value": "a-ReV9dUDjuNa4wOZyl_eiHxu7RglIPTvUKKjg_B5hiRGQB-ugUdiRu9o7NIUdiA2OKhBB9wrqaQUfJjRyL28CORMzzgP4aYmT-Tcvid3MdXpmqASuty17mNPovNFjD145iglhGW3yUtFWwuURm8E8R6VgQxce5OV6s6FFe9FHARSpdaXt0vR-mbuh-bUfBchE5RDPiW_LhhM0vazEXuEA"
+            },
+            {
+              "name": "f",
+              "value": "json"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "pgv_pvi",
+              "value": "2420015104",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "RK",
+              "value": "nBZ1nHvEOM",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "ptcz",
+              "value": "2409d5a8e82c61ee05e35a776eab9dcd33e216ad6b7fc258aa773fd1bf2f417d",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "pgv_pvid",
+              "value": "9078702240",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "eas_sid",
+              "value": "H1i5n4U26317k6F7k748T219S2",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "luin",
+              "value": "o0376057520",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "lskey",
+              "value": "0001000015d5e7e390fc27535440b72e61d3e275787524ea0f75e0daeb1628c807f1711a6b3f30fc64ce69ac",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "_ga",
+              "value": "GA1.2.1151599427.1559221363",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "_gid",
+              "value": "GA1.2.271374682.1560153926",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "pgv_info",
+              "value": "ssid=s1271298625",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.ref",
+              "value": "direct",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.refid",
+              "value": "843577564600627",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lvt_9364e629af24cb52acc78b43e8c9f77d",
+              "value": "1559714155,1559744678,1560153926,1560215514",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lpvt_9364e629af24cb52acc78b43e8c9f77d",
+              "value": "1560215514",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.ltype",
+              "value": "1",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wxpay.corpid",
+              "value": "1970325047075110",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wxpay.vid",
+              "value": "1688851247419313",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.vid",
+              "value": "1688851247419313",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.logined",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.d2st",
+              "value": "a911012",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.sid",
+              "value": "0Ur3QJ8bY3XpZL9u1TGYYY_d0-opPmilAjfBq53lt5wbhAr9ZFC4TElbc6igrtHG",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.vst",
+              "value": "rC8JY7oXUUPHufXqq910DKT-hBB24mTxy8YIBpI1eez8pe4Bi--yei26XEp8cOAIajZtX5hUbkUA0MiC5ltxa6H8NDf-xUj-ay3A428Dnt5aVHsd7xazL9qH6Z43QRdqEpFQFFNbe69KZCIcDoo2bgAkZcw2b9QbRUful6UFIrLHY93n9JIM64srK30wu8uS_Sq1NKojsnlmIlPTG0NS1txPaRcAxr7c9Hhj8nr_DXEMnaitelZZFruDFGoatK_JPqbOoMqtAmFWhabwwwM3zg",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "date",
+              "value": "Tue, 11 Jun 2019 08:24:39 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "server",
+              "value": "nginx"
+            },
+            {
+              "name": "x-powered-by",
+              "value": "PHP/7.0.10"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json; charset=UTF-8"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 786,
+            "mimeType": "application/json"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 724
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 1.6879999979904388,
+          "dns": 0.599,
+          "ssl": 46.770999999999994,
+          "connect": 86.314,
+          "send": 0.9180000000000064,
+          "wait": 135.22899999986078,
+          "receive": 0.5459999993036035,
+          "_blocked_queueing": 0.8859999979904387,
+          "_blocked_proxy": 0.345
+        },
+        "serverIPAddress": "163.177.56.50",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "send",
+                "scriptId": "1307",
+                "url": "https://work.weixin.qq.com/api/devtools/assets/js/jquery-1.11.1.min.js",
+                "lineNumber": 2,
+                "columnNumber": 26509
+              },
+              {
+                "functionName": "ajax",
+                "scriptId": "1307",
+                "url": "https://work.weixin.qq.com/api/devtools/assets/js/jquery-1.11.1.min.js",
+                "lineNumber": 2,
+                "columnNumber": 23126
+              },
+              {
+                "functionName": "",
+                "scriptId": "1309",
+                "url": "https://work.weixin.qq.com/api/devtools/assets/js/devtool.js",
+                "lineNumber": 139,
+                "columnNumber": 10
+              },
+              {
+                "functionName": "dispatch",
+                "scriptId": "1307",
+                "url": "https://work.weixin.qq.com/api/devtools/assets/js/jquery-1.11.1.min.js",
+                "lineNumber": 1,
+                "columnNumber": 17660
+              },
+              {
+                "functionName": "q.handle",
+                "scriptId": "1307",
+                "url": "https://work.weixin.qq.com/api/devtools/assets/js/jquery-1.11.1.min.js",
+                "lineNumber": 1,
+                "columnNumber": 14333
+              }
+            ]
+          }
+        },
+        "_priority": "High",
+        "_resourceType": "xhr",
+        "connection": "58705"
+      },
+      {
+        "startedDateTime": "2019-06-11T08:26:29.279Z",
+        "time": 184.6800000021176,
+        "request": {
+          "method": "GET",
+          "url": "https://work.weixin.qq.com/api/devtools/assets/image/style-dev-center.png",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": ":path",
+              "value": "/api/devtools/assets/image/style-dev-center.png"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "cookie",
+              "value": "pgv_pvi=2420015104; RK=nBZ1nHvEOM; ptcz=2409d5a8e82c61ee05e35a776eab9dcd33e216ad6b7fc258aa773fd1bf2f417d; pgv_pvid=9078702240; eas_sid=H1i5n4U26317k6F7k748T219S2; luin=o0376057520; lskey=0001000015d5e7e390fc27535440b72e61d3e275787524ea0f75e0daeb1628c807f1711a6b3f30fc64ce69ac; _ga=GA1.2.1151599427.1559221363; _gid=GA1.2.271374682.1560153926; pgv_info=ssid=s1271298625; wwrtx.ref=direct; wwrtx.refid=843577564600627; Hm_lvt_9364e629af24cb52acc78b43e8c9f77d=1559714155,1559744678,1560153926,1560215514; Hm_lpvt_9364e629af24cb52acc78b43e8c9f77d=1560215514; wwrtx.ltype=1; wxpay.corpid=1970325047075110; wxpay.vid=1688851247419313; wwrtx.vid=1688851247419313; wwrtx.logined=true; wwrtx.d2st=a911012; wwrtx.sid=0Ur3QJ8bY3XpZL9u1TGYYY_d0-opPmilAjfBq53lt5wbhAr9ZFC4TElbc6igrtHG; wwrtx.vst=rC8JY7oXUUPHufXqq910DKT-hBB24mTxy8YIBpI1eez8pe4Bi--yei26XEp8cOAIajZtX5hUbkUA0MiC5ltxa6H8NDf-xUj-ay3A428Dnt5aVHsd7xazL9qH6Z43QRdqEpFQFFNbe69KZCIcDoo2bgAkZcw2b9QbRUful6UFIrLHY93n9JIM64srK30wu8uS_Sq1NKojsnlmIlPTG0NS1txPaRcAxr7c9Hhj8nr_DXEMnaitelZZFruDFGoatK_JPqbOoMqtAmFWhabwwwM3zg"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "accept-language",
+              "value": "zh-CN,zh;q=0.9"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+            },
+            {
+              "name": "accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": ":authority",
+              "value": "work.weixin.qq.com"
+            },
+            {
+              "name": "referer",
+              "value": "https://work.weixin.qq.com/api/devtools/assets/css/dev-center.css?v=20161017"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": ":method",
+              "value": "GET"
+            }
+          ],
+          "queryString": [],
+          "cookies": [
+            {
+              "name": "pgv_pvi",
+              "value": "2420015104",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "RK",
+              "value": "nBZ1nHvEOM",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "ptcz",
+              "value": "2409d5a8e82c61ee05e35a776eab9dcd33e216ad6b7fc258aa773fd1bf2f417d",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "pgv_pvid",
+              "value": "9078702240",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "eas_sid",
+              "value": "H1i5n4U26317k6F7k748T219S2",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "luin",
+              "value": "o0376057520",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "lskey",
+              "value": "0001000015d5e7e390fc27535440b72e61d3e275787524ea0f75e0daeb1628c807f1711a6b3f30fc64ce69ac",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "_ga",
+              "value": "GA1.2.1151599427.1559221363",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "_gid",
+              "value": "GA1.2.271374682.1560153926",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "pgv_info",
+              "value": "ssid=s1271298625",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.ref",
+              "value": "direct",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.refid",
+              "value": "843577564600627",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lvt_9364e629af24cb52acc78b43e8c9f77d",
+              "value": "1559714155,1559744678,1560153926,1560215514",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "Hm_lpvt_9364e629af24cb52acc78b43e8c9f77d",
+              "value": "1560215514",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.ltype",
+              "value": "1",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wxpay.corpid",
+              "value": "1970325047075110",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wxpay.vid",
+              "value": "1688851247419313",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.vid",
+              "value": "1688851247419313",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.logined",
+              "value": "true",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.d2st",
+              "value": "a911012",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.sid",
+              "value": "0Ur3QJ8bY3XpZL9u1TGYYY_d0-opPmilAjfBq53lt5wbhAr9ZFC4TElbc6igrtHG",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            },
+            {
+              "name": "wwrtx.vst",
+              "value": "rC8JY7oXUUPHufXqq910DKT-hBB24mTxy8YIBpI1eez8pe4Bi--yei26XEp8cOAIajZtX5hUbkUA0MiC5ltxa6H8NDf-xUj-ay3A428Dnt5aVHsd7xazL9qH6Z43QRdqEpFQFFNbe69KZCIcDoo2bgAkZcw2b9QbRUful6UFIrLHY93n9JIM64srK30wu8uS_Sq1NKojsnlmIlPTG0NS1txPaRcAxr7c9Hhj8nr_DXEMnaitelZZFruDFGoatK_JPqbOoMqtAmFWhabwwwM3zg",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Tue, 11 Jun 2019 08:24:39 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Mon, 12 Feb 2018 09:15:15 GMT"
+            },
+            {
+              "name": "server",
+              "value": "nginx"
+            },
+            {
+              "name": "etag",
+              "value": "W/\"5a815b23-c488\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "image/png"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 50312,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 48927
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.3780000017348213,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.16100000000000003,
+          "wait": 103.35599999886588,
+          "receive": 78.78500000151689,
+          "_blocked_queueing": 1.0690000017348211,
+          "_blocked_proxy": 0.5360000000000001
+        },
+        "serverIPAddress": "163.177.56.50",
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "High",
+        "_resourceType": "image",
+        "connection": "58705"
+      }
+    ]
+  }
+}
