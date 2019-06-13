@@ -1,5 +1,6 @@
 package com.testerhome.hogwarts.wework;
 
+import com.jayway.jsonpath.JsonPath;
 import io.restassured.RestAssured;
 
 public class Wework {
@@ -14,10 +15,26 @@ public class Wework {
                 .extract().path("access_token");
     }
 
-    public static String getToken(){
+    public static String getBrainPlatformAppToken(){
+        String body = "{\"userName\":\"18616210504\",\"password\":\"suiren123\",\"userType\":1}";
+        return RestAssured.given().log().all()
+                .body(body)
+                .when().post("http://192.168.1.103:8080/brainPlatform/rest/user/login")
+                .then().log().all().statusCode(200)
+                .extract().path("Token");
+    }
+
+    public static String getToken(String tokenPattern){
         //todo:支持两种类型的token
         if (token == null){
-            token = getWeworkToken(WeworkConfig.getInstance().contactSecret);
+            if (tokenPattern.equals("wechat")){
+                token = getWeworkToken(WeworkConfig.getInstance().contactSecret);
+                return token;
+            }
+            if(tokenPattern.equals("brainPlatform")){
+                token = getBrainPlatformAppToken();
+                return token;
+            }
         }
         return token;
     }

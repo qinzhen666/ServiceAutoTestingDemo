@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberTest {
 
+    static String tokenPattern = "weichat";
     static Random ra = new Random();
     static Member member;
     @BeforeEach
@@ -31,7 +32,7 @@ class MemberTest {
         map.put("department", Arrays.asList(1,2));
         map.put("mobile",151 + member.random.substring(0+5,8+5) );
         map.put("email",member.random.substring(0+5,8+5) + "@qq.com");
-        member.create(map).then().statusCode(200).body("errcode",equalTo(0));
+        member.create(map,tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
     }
 
     @Test
@@ -50,39 +51,39 @@ class MemberTest {
     void read() {
         //path("department.find{it.name=='"+ oldName +"'}.id").toString();
         HashMap map = MemberTest.createForTest("readUser_");
-        member.create(map);
+        member.create(map,tokenPattern);
         String userid = String.valueOf(map.get("userid"));
         System.out.println("userID是" + userid);
-        member.read(userid).then().statusCode(200).body("errcode",equalTo(0));
+        member.read(userid,tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
     }
 
     @Test
     void update() {
         HashMap map = MemberTest.createForTest("updateUser_");
-        member.create(map);
+        member.create(map,tokenPattern);
         String userid = String.valueOf(map.get("userid"));
         System.out.println("userID是" + userid);
         map.put("alias","updateman");
-        member.update(map).then().statusCode(200).body("errcode",equalTo(0));
-        member.read(userid).then().statusCode(200).body("alias",equalTo("updateman"));
+        member.update(map,tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
+        member.read(userid,tokenPattern).then().statusCode(200).body("alias",equalTo("updateman"));
     }
 
     @Test
     void delete() {
         HashMap map = MemberTest.createForTest("deleteUser");
-        member.create(map);
+        member.create(map,tokenPattern);
         String userid = String.valueOf(map.get("userid"));
-        member.delete(userid).then().statusCode(200).body("errcode",equalTo(0));
-        member.read(userid).then().statusCode(200).body("errcode",equalTo(60111));//用户不存在返回60111
+        member.delete(userid,tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
+        member.read(userid,tokenPattern).then().statusCode(200).body("errcode",equalTo(60111));//用户不存在返回60111
     }
 
     @Test
     void getUserSimplelist() {
-        member.getUserSimplelist("2","1").then().statusCode(200).body("errcode",equalTo(0));
+        member.getUserSimplelist("2","1",tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
     }
 
     @Test
     void batchdelete() {
-        member.batchdelete().then().statusCode(200).body("errcode",equalTo(0));
+        member.batchdelete(tokenPattern).then().statusCode(200).body("errcode",equalTo(0));
     }
 }

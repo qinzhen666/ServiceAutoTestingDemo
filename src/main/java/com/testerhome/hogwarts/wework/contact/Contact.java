@@ -1,24 +1,25 @@
 package com.testerhome.hogwarts.wework.contact;
 
-import com.testerhome.hogwarts.wework.Restful;
+import com.testerhome.hogwarts.wework.Api;
 import com.testerhome.hogwarts.wework.Wework;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 
-import static io.restassured.RestAssured.given;
 
-public class Contact extends Restful {
+public class Contact extends Api {
 
     String random = String.valueOf(System.currentTimeMillis());
-    public Contact(){
-        reset();
-    }
-
-    public void reset(){
-        requestSpecification = given()
-                .log().all()
-                .queryParam("access_token", Wework.getToken())
-                .contentType(ContentType.JSON);
-    }
+//    @Override
+//    public RequestSpecification getDefaultRequestSpecification(String tokenPattern){
+//        RequestSpecification requestSpecification = super.getDefaultRequestSpecification(tokenPattern);
+//        requestSpecification.queryParam("access_token", Wework.getToken(tokenPattern))
+//                            .contentType(ContentType.JSON);
+//
+//        requestSpecification.filter((req,res,ctx)->{
+//           return ctx.next(req,res);
+//        });
+//        return requestSpecification;
+//    }
 
 
 }
