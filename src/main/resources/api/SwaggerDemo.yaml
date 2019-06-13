@@ -1,0 +1,3 @@
+method: post
+url: http://192.168.1.103/dist/forget/forgetPassword
+uri: /forget/forgetPassword

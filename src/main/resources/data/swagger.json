@@ -1,0 +1,2251 @@
+
+{
+"openapi" : "3.0.1",
+"info" : {
+"title" : "GREEN TOKEN SERVER API information",
+"description" : "GREEN TOKEN SERVER API information",
+"version" : "1.0",
+"extensions" : { }
+},
+"servers" : [ {
+"url" : "//47.103.47.170:8080/brainPlatform"
+} ],
+"tags" : [ {
+"name" : "jenkins测试服务接口-运维",
+"description" : "Check Manager",
+"extensions" : { }
+}, {
+"name" : "pad版本更新",
+"description" : "Apk Version Manager",
+"extensions" : { }
+}, {
+"name" : "患者档案",
+"description" : "Patient Manager",
+"extensions" : { }
+}, {
+"name" : "测评报告",
+"description" : "Assessment Record Manager",
+"extensions" : { }
+}, {
+"name" : "测评方案",
+"description" : "Assessment Plan Manager",
+"extensions" : { }
+}, {
+"name" : "测评量表",
+"description" : "Assessment Item Manager",
+"extensions" : { }
+}, {
+"name" : "脑健康师信息",
+"description" : "Doctor Manager",
+"extensions" : { }
+}, {
+"name" : "脑健康师找回密码",
+"description" : "Forget Manager",
+"extensions" : { }
+}, {
+"name" : "脑健康师问题反馈",
+"description" : "Feedback Manager",
+"extensions" : { }
+} ],
+"paths" : {
+"/api/check" : {
+"get" : {
+"tags" : [ "jenkins测试服务接口-运维" ],
+"summary" : "检查服务是否启动",
+"description" : "检查服务是否启动)",
+"operationId" : "serviceCheckUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«List«AssessmentItemEntity»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/forget/forgetPassword" : {
+"post" : {
+"tags" : [ "脑健康师找回密码" ],
+"summary" : "医生忘记密码",
+"description" : "医生忘记密码",
+"operationId" : "forgetPasswordUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+  "body": {
+    "password": "suirendanao@",
+    "tel": "17988888888",
+    "verifyCode": 0
+  },
+"description" : "forgetPasswordDto",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/医生忘记密码接收对象(前台系统)"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«DoctorEntity»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/forget/sendCode" : {
+"get" : {
+"tags" : [ "脑健康师找回密码" ],
+"summary" : "发送验证码",
+"description" : "发送验证码",
+"operationId" : "sendCodeUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "tel",
+  "value": "",
+"in" : "query",
+"description" : "tel",
+"required" : true,
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«string»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentItem" : {
+"get" : {
+"tags" : [ "测评量表" ],
+"summary" : "查询所有测评项目",
+"description" : "查询所有测评项目)",
+"operationId" : "queryAssessmentItemUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«List«AssessmentItemEntity»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentPlan" : {
+"get" : {
+"tags" : [ "测评方案" ],
+"summary" : "查询当前登陆用户的自定义测评方案",
+"description" : "查询当前登陆用户的自定义测评方案)",
+"operationId" : "queryAssessmentPlanUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«List«AssessmentPlanEntity»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"post" : {
+"tags" : [ "测评方案" ],
+"summary" : "新增自定义测评方案",
+"description" : "自定义测评方案",
+"operationId" : "insertAssessmentPlanUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "assessmentPlanDto",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/自定义测评接收数据对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«AssessmentPlanEntity»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentPlan/delete" : {
+"get" : {
+"tags" : [ "测评方案" ],
+"summary" : "删除自定义测评方案",
+"description" : "删除测评方案",
+"operationId" : "deleteAssessmentPlanUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "uid",
+"in" : "query",
+"description" : "uid",
+"required" : true,
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«T»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentPlan/isShow" : {
+"get" : {
+"tags" : [ "测评方案" ],
+"summary" : "设置测评方案是否显示",
+"description" : "设置测评方案是否显示)",
+"operationId" : "assessmentPlanIsShowUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "uid",
+"in" : "query",
+"description" : "uid",
+"required" : true,
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«T»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentPlan/update" : {
+"post" : {
+"tags" : [ "测评方案" ],
+"summary" : "修改自定义测评方案",
+"description" : "修改测评方案",
+"operationId" : "updateAssessmentPlanUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "updateAssessmentPlanDto",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/测评方案接收更新参数的对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«AssessmentPlanEntity»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentRecord" : {
+"get" : {
+"tags" : [ "测评报告" ],
+"summary" : "查询测评报告",
+"description" : "查询测评报告",
+"operationId" : "queryAssessmentRecordUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "patientUid",
+"in" : "query",
+"description" : "当前第几页",
+"required" : true,
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "pageNumber",
+"in" : "query",
+"description" : "当前第几页",
+"required" : true,
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "pageSize",
+"in" : "query",
+"description" : "每页多少条",
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«List«接收新增测评报告参数»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"post" : {
+"tags" : [ "测评报告" ],
+"summary" : "新增测评报告",
+"description" : "新增测评报告",
+"operationId" : "insertAssessmentRecordUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "assessmentRecordDto",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/接收新增测评报告参数"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«T»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/assessmentRecord/upload" : {
+"post" : {
+"tags" : [ "测评报告" ],
+"summary" : "上传图片",
+"description" : "上传图片",
+"operationId" : "uploadRecordPicUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "sequence",
+"in" : "query",
+"description" : "序列号",
+"required" : true,
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"content" : {
+"multipart/form-data" : {
+"schema" : {
+"properties" : {
+"file" : {
+"type" : "string",
+"description" : "file",
+"format" : "binary",
+"extensions" : { }
+}
+}
+}
+}
+}
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,string»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/changePwd" : {
+"post" : {
+"tags" : [ "脑健康师信息" ],
+"summary" : "脑健康师重置密码",
+"description" : "脑健康师重置密码",
+"operationId" : "changePwdUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "resetPasswordDto",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/医生重置密码接收对象（前台系统）"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«DoctorEntity»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/doctor" : {
+"get" : {
+"tags" : [ "脑健康师信息" ],
+"summary" : "获取脑健康师信息,测评方案信息",
+"description" : "获取脑健康师信息,测评方案信息",
+"operationId" : "queryDoctorUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,object»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/feedback" : {
+"post" : {
+"tags" : [ "脑健康师问题反馈" ],
+"summary" : "问题反馈",
+"description" : "问题反馈",
+"operationId" : "insertFeedbackUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "createFeedback",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/问题反馈参数接收对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«T»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/loginTimes" : {
+"get" : {
+"tags" : [ "脑健康师信息" ],
+"summary" : "脑健康师错误登录次数限制",
+"description" : "脑健康师错误登录次数限制",
+"operationId" : "loginTimesUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,object»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/patient" : {
+"get" : {
+"tags" : [ "患者档案" ],
+"summary" : "根据患者姓名与手机号查询患者信息",
+"description" : "根据患者姓名与手机号查询患者信息",
+"operationId" : "selectPatientUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "patientName",
+"in" : "query",
+"description" : "患者姓名",
+"required" : true,
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "mobilephone",
+"in" : "query",
+"description" : "患者手机号",
+"required" : true,
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,object»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/patient/delete" : {
+"get" : {
+"tags" : [ "患者档案" ],
+"summary" : "删除患者信息",
+"description" : "删除患者信息",
+"operationId" : "deletePatientUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+}, {
+"name" : "uid",
+"in" : "query",
+"description" : "患者唯一标识",
+"required" : true,
+"schema" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«T»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/patient/insert" : {
+"post" : {
+"tags" : [ "患者档案" ],
+"summary" : "新增患者档案",
+"description" : "新增患者档案",
+"operationId" : "insertPatientUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "createPatient",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/新增患者对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,object»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/patient/update" : {
+"post" : {
+"tags" : [ "患者档案" ],
+"summary" : "编辑患者档案",
+"description" : "编辑患者档案",
+"operationId" : "updatePatientUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "updatePatient",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/编辑患者对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«Map«string,object»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/rest/patients" : {
+"post" : {
+"tags" : [ "患者档案" ],
+"summary" : "患者列表信息查询",
+"description" : "患者列表信息查询",
+"operationId" : "queryPatientsUsingPOST",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"requestBody" : {
+"description" : "condition",
+"content" : {
+"application/json" : {
+"schema" : {
+"$ref" : "#/components/schemas/筛选条件接收对象"
+}
+}
+},
+"required" : true
+},
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«List«Map«string,object»»»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+},
+"/upgrade/getApk" : {
+"get" : {
+"tags" : [ "pad版本更新" ],
+"summary" : "获取最新apk文件信息",
+"description" : "获取最新apk文件信息",
+"operationId" : "getApkInfoUsingGET",
+"parameters" : [ {
+"name" : "Token",
+"in" : "header",
+"description" : "token",
+"schema" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+} ],
+"responses" : {
+"200" : {
+"description" : "OK",
+"content" : {
+"application/json;charset=UTF-8" : {
+"schema" : {
+"$ref" : "#/components/schemas/Resp«AppDto»",
+"extensions" : { }
+}
+}
+},
+"extensions" : { }
+}
+},
+"extensions" : { }
+},
+"extensions" : { }
+}
+},
+"components" : {
+"schemas" : {
+"AppDto" : {
+"title" : "AppDto",
+"required" : [ "forceUpdate" ],
+"type" : "object",
+"properties" : {
+"filePath" : {
+"type" : "string",
+"extensions" : { }
+},
+"forceUpdate" : {
+"type" : "boolean",
+"description" : "是否强制更新(强制更新1，不强制更新0)",
+"example" : false,
+"extensions" : { }
+},
+"versionCode" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"versionName" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"AssessmentItemEntity" : {
+"title" : "AssessmentItemEntity",
+"type" : "object",
+"properties" : {
+"assessmentDescribe" : {
+"type" : "string",
+"extensions" : { }
+},
+"assessmentName" : {
+"type" : "string",
+"extensions" : { }
+},
+"classify" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"createTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"creator" : {
+"type" : "string",
+"extensions" : { }
+},
+"duration" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"normalScore" : {
+"type" : "string",
+"extensions" : { }
+},
+"testId" : {
+"type" : "string",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"updateTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"value" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+}
+}
+},
+"AssessmentPlanEntity" : {
+"title" : "AssessmentPlanEntity",
+"type" : "object",
+"properties" : {
+"assessmentItems" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/AssessmentItemEntity",
+"extensions" : { }
+}
+},
+"assessmentNum" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"assessmentPlanDescribe" : {
+"type" : "string",
+"extensions" : { }
+},
+"assessmentPlanName" : {
+"type" : "string",
+"extensions" : { }
+},
+"classify" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"createTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"creator" : {
+"type" : "string",
+"extensions" : { }
+},
+"doctorUid" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"hospitals" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/HospitalEntity",
+"extensions" : { }
+}
+},
+"isShow" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"status" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"totleDuration" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"type" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"updateTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+}
+}
+},
+"DoctorEntity" : {
+"title" : "DoctorEntity",
+"type" : "object",
+"properties" : {
+"address" : {
+"type" : "string",
+"extensions" : { }
+},
+"age" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"backimgurl" : {
+"type" : "string",
+"extensions" : { }
+},
+"birthDate" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"createTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"creator" : {
+"type" : "string",
+"extensions" : { }
+},
+"doctorHospitals" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/HospitalEntity",
+"extensions" : { }
+}
+},
+"doctorNumber" : {
+"type" : "string",
+"extensions" : { }
+},
+"expert" : {
+"type" : "string",
+"extensions" : { }
+},
+"frontimgurl" : {
+"type" : "string",
+"extensions" : { }
+},
+"fullname" : {
+"type" : "string",
+"extensions" : { }
+},
+"headPortrait" : {
+"type" : "string",
+"extensions" : { }
+},
+"idnumber" : {
+"type" : "string",
+"extensions" : { }
+},
+"jobcode" : {
+"type" : "string",
+"extensions" : { }
+},
+"lockScreenPassword" : {
+"type" : "string",
+"extensions" : { }
+},
+"mobilenumber" : {
+"type" : "string",
+"extensions" : { }
+},
+"positionRankCode" : {
+"type" : "string",
+"extensions" : { }
+},
+"registerEmail" : {
+"type" : "string",
+"extensions" : { }
+},
+"sex" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"status" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"updateTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"userName" : {
+"type" : "string",
+"extensions" : { }
+},
+"workePerience" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"HospitalEntity" : {
+"title" : "HospitalEntity",
+"type" : "object",
+"properties" : {
+"address" : {
+"type" : "string",
+"extensions" : { }
+},
+"city" : {
+"type" : "string",
+"extensions" : { }
+},
+"cityId" : {
+"type" : "string",
+"extensions" : { }
+},
+"createTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"gps_lat" : {
+"type" : "number",
+"format" : "double",
+"extensions" : { }
+},
+"gps_lng" : {
+"type" : "number",
+"format" : "double",
+"extensions" : { }
+},
+"hospitalName" : {
+"type" : "string",
+"extensions" : { }
+},
+"lat" : {
+"type" : "number",
+"format" : "double",
+"extensions" : { }
+},
+"lng" : {
+"type" : "number",
+"format" : "double",
+"extensions" : { }
+},
+"province" : {
+"type" : "string",
+"extensions" : { }
+},
+"provinceId" : {
+"type" : "string",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+},
+"updateTime" : {
+"type" : "string",
+"format" : "date-time",
+"extensions" : { }
+},
+"value" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+}
+}
+},
+"Map«string,object»" : {
+"title" : "Map«string,object»",
+"type" : "object",
+"additionalProperties" : {
+"type" : "object",
+"properties" : { },
+"extensions" : { }
+}
+},
+"Map«string,string»" : {
+"title" : "Map«string,string»",
+"type" : "object",
+"additionalProperties" : {
+"type" : "string",
+"extensions" : { }
+}
+},
+"Resp«AppDto»" : {
+"title" : "Resp«AppDto»",
+"type" : "object",
+"properties" : {
+"body" : {
+"$ref" : "#/components/schemas/AppDto",
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«AssessmentPlanEntity»" : {
+"title" : "Resp«AssessmentPlanEntity»",
+"type" : "object",
+"properties" : {
+"body" : {
+"$ref" : "#/components/schemas/AssessmentPlanEntity",
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«DoctorEntity»" : {
+"title" : "Resp«DoctorEntity»",
+"type" : "object",
+"properties" : {
+"body" : {
+"$ref" : "#/components/schemas/DoctorEntity",
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«List«AssessmentItemEntity»»" : {
+"title" : "Resp«List«AssessmentItemEntity»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/AssessmentItemEntity",
+"extensions" : { }
+}
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«List«AssessmentPlanEntity»»" : {
+"title" : "Resp«List«AssessmentPlanEntity»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/AssessmentPlanEntity",
+"extensions" : { }
+}
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«List«Map«string,object»»»" : {
+"title" : "Resp«List«Map«string,object»»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/Map«string,object»",
+"extensions" : { }
+}
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«List«接收新增测评报告参数»»" : {
+"title" : "Resp«List«接收新增测评报告参数»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "array",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/接收新增测评报告参数",
+"extensions" : { }
+}
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«Map«string,object»»" : {
+"title" : "Resp«Map«string,object»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "object",
+"properties" : { },
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«Map«string,string»»" : {
+"title" : "Resp«Map«string,string»»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "object",
+"additionalProperties" : {
+"type" : "string",
+"extensions" : { }
+},
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«T»" : {
+"title" : "Resp«T»",
+"type" : "object",
+"properties" : {
+"body" : {
+"$ref" : "#/components/schemas/T",
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"Resp«string»" : {
+"title" : "Resp«string»",
+"type" : "object",
+"properties" : {
+"body" : {
+"type" : "string",
+"extensions" : { }
+},
+"message" : {
+"type" : "string",
+"extensions" : { }
+},
+"status" : {
+"type" : "string",
+"extensions" : { }
+}
+}
+},
+"T" : {
+"title" : "T",
+"type" : "object"
+},
+"修改病史信息对象" : {
+"title" : "修改病史信息对象",
+"required" : [ "uid" ],
+"type" : "object",
+"properties" : {
+"medicalHistoryDegree" : {
+"type" : "integer",
+"description" : "病史程度：痴呆病 mci-1 早期-2 中期-3 晚期-4 其他-5 否-0；   其他，是1，否0",
+"format" : "int32",
+"extensions" : { }
+},
+"medicalHistoryDescribe" : {
+"type" : "string",
+"description" : "病史类型描述其他",
+"extensions" : { }
+},
+"medicalHistoryIdentify" : {
+"type" : "integer",
+"description" : "病史类型唯一标识：老年痴呆-0，脑外伤-1，痴呆家族史-2",
+"format" : "int32",
+"extensions" : { }
+},
+"medicalHistoryName" : {
+"type" : "string",
+"description" : "病史名称：老年痴呆，脑外伤，痴呆家族史",
+"extensions" : { }
+},
+"medications" : {
+"type" : "array",
+"description" : "用药集合",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/用药对象",
+"extensions" : { }
+}
+},
+"uid" : {
+"type" : "integer",
+"description" : "病史类型信息唯一标识",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "修改病史信息对象"
+},
+"医生忘记密码接收对象(前台系统)" : {
+"title" : "医生忘记密码接收对象(前台系统)",
+"required" : [ "password", "tel", "verifyCode" ],
+"type" : "object",
+"properties" : {
+"password" : {
+"type" : "string",
+"description" : "密码",
+"extensions" : { }
+},
+"tel" : {
+"type" : "string",
+"description" : "手机号",
+"extensions" : { }
+},
+"verifyCode" : {
+"type" : "integer",
+"description" : "验证码",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "医生忘记密码接收对象（前台系统）"
+},
+"医生重置密码接收对象（前台系统）" : {
+"title" : "医生重置密码接收对象（前台系统）",
+"required" : [ "currentPassword", "newPassword", "renewPassword" ],
+"type" : "object",
+"properties" : {
+"currentPassword" : {
+"type" : "string",
+"description" : "当前密码",
+"extensions" : { }
+},
+"newPassword" : {
+"type" : "string",
+"description" : "新密码",
+"extensions" : { }
+},
+"renewPassword" : {
+"type" : "string",
+"description" : "确认新密码",
+"extensions" : { }
+}
+},
+"description" : "医生重置密码接收对象（前台系统）"
+},
+"患者信息参数" : {
+"title" : "患者信息参数",
+"required" : [ "education", "patientBirthdate", "patientName", "uid" ],
+"type" : "object",
+"properties" : {
+"education" : {
+"type" : "string",
+"description" : "教育程度",
+"extensions" : { }
+},
+"patientAge" : {
+"type" : "integer",
+"description" : "年龄",
+"format" : "int32",
+"extensions" : { }
+},
+"patientBirthdate" : {
+"type" : "string",
+"description" : "出生日期",
+"extensions" : { }
+},
+"patientName" : {
+"type" : "string",
+"description" : "患者姓名",
+"extensions" : { }
+},
+"patientSex" : {
+"type" : "integer",
+"description" : "性别",
+"format" : "int32",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"description" : "测评方案唯一标识唯一标识",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "患者信息参数"
+},
+"患者信息对象" : {
+"title" : "患者信息对象",
+"required" : [ "education", "educationTime", "jobType", "marrige", "mobilephone", "patientAge", "patientBirthdate", "patientName", "patientSex" ],
+"type" : "object",
+"properties" : {
+"address" : {
+"type" : "string",
+"description" : "具体地址",
+"extensions" : { }
+},
+"education" : {
+"type" : "string",
+"description" : "教育程度：直接填写字符串，比如小学，初中，高中",
+"extensions" : { }
+},
+"educationTime" : {
+"type" : "integer",
+"description" : "教育年限",
+"format" : "int32",
+"extensions" : { }
+},
+"jobType" : {
+"type" : "string",
+"description" : "职业",
+"extensions" : { }
+},
+"marrige" : {
+"type" : "string",
+"description" : "婚姻状况：直接填写字符串，比如已婚，未婚",
+"extensions" : { }
+},
+"mobilephone" : {
+"type" : "string",
+"description" : "受试者手机号：必须是11位",
+"extensions" : { }
+},
+"patientAge" : {
+"type" : "integer",
+"description" : "年龄",
+"format" : "int32",
+"extensions" : { }
+},
+"patientBirthdate" : {
+"type" : "string",
+"description" : "出生日期：yyyy-MM-dd",
+"extensions" : { }
+},
+"patientIdnumber" : {
+"type" : "string",
+"description" : "身份证号",
+"extensions" : { }
+},
+"patientName" : {
+"type" : "string",
+"description" : "受试者姓名",
+"extensions" : { }
+},
+"patientSex" : {
+"type" : "integer",
+"description" : "性别：男：0，女：1",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "患者信息对象"
+},
+"接收新增测评报告item参数" : {
+"title" : "接收新增测评报告item参数",
+"required" : [ "assessmentDescribe", "assessmentName", "normalScore", "testId", "uid" ],
+"type" : "object",
+"properties" : {
+"assessmentDescribe" : {
+"type" : "string",
+"description" : "测评量表内容",
+"extensions" : { }
+},
+"assessmentName" : {
+"type" : "string",
+"description" : "测评量表名称",
+"extensions" : { }
+},
+"normalScore" : {
+"type" : "string",
+"description" : "参考值",
+"extensions" : { }
+},
+"testId" : {
+"type" : "string",
+"description" : "测评标识",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"description" : "测评量表唯一标识",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "接收新增测评报告item参数"
+},
+"接收新增测评报告参数" : {
+"title" : "接收新增测评报告参数",
+"required" : [ "okTime", "personBean", "planId", "planName", "sonAnwserBeans" ],
+"type" : "object",
+"properties" : {
+"okTime" : {
+"type" : "string",
+"description" : "测评时间",
+"extensions" : { }
+},
+"personBean" : {
+"$ref" : "#/components/schemas/患者信息参数",
+"extensions" : { }
+},
+"planId" : {
+"type" : "integer",
+"description" : "测评方案编号",
+"format" : "int32",
+"extensions" : { }
+},
+"planName" : {
+"type" : "string",
+"description" : "测评方案名称",
+"extensions" : { }
+},
+"sonAnwserBeans" : {
+"type" : "array",
+"description" : "报告列表信息",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/测评报告参数",
+"extensions" : { }
+}
+}
+},
+"description" : "接收新增测评报告参数"
+},
+"新增患者对象" : {
+"title" : "新增患者对象",
+"required" : [ "medicalHistoryType", "patient" ],
+"type" : "object",
+"properties" : {
+"medicalHistoryType" : {
+"type" : "array",
+"description" : "病史类型信息",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/病史类型信息对象",
+"extensions" : { }
+}
+},
+"patient" : {
+"$ref" : "#/components/schemas/患者信息对象",
+"extensions" : { }
+}
+},
+"description" : "新增患者对象"
+},
+"测评报告参数" : {
+"title" : "测评报告参数",
+"required" : [ "baogUrl", "cepBean", "currentScore" ],
+"type" : "object",
+"properties" : {
+"baogUrl" : {
+"type" : "string",
+"description" : "报告图片地址",
+"extensions" : { }
+},
+"cepBean" : {
+"$ref" : "#/components/schemas/接收新增测评报告item参数",
+"extensions" : { }
+},
+"currentScore" : {
+"type" : "integer",
+"description" : "当前得分",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "测评报告参数"
+},
+"测评方案接收更新参数的对象" : {
+"title" : "测评方案接收更新参数的对象",
+"required" : [ "assessmentPlanDescribe", "assessmentPlanName", "items", "uid" ],
+"type" : "object",
+"properties" : {
+"assessmentPlanDescribe" : {
+"type" : "string",
+"description" : "测评方案描述",
+"extensions" : { }
+},
+"assessmentPlanName" : {
+"type" : "string",
+"description" : "测评方案名称",
+"extensions" : { }
+},
+"items" : {
+"type" : "array",
+"description" : "测评项目UID集合",
+"extensions" : { },
+"items" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"uid" : {
+"type" : "integer",
+"description" : "测评方案信息的唯一标识",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "测评方案接收更新参数的对象"
+},
+"用药对象" : {
+"title" : "用药对象",
+"type" : "object",
+"properties" : {
+"medicationDegree" : {
+"type" : "integer",
+"description" : "药物使用：是1，否：0",
+"format" : "int32",
+"extensions" : { }
+},
+"medicationEndTime" : {
+"type" : "string",
+"description" : "用药结束时间：yyyy-MM-dd",
+"extensions" : { }
+},
+"medicationName" : {
+"type" : "string",
+"description" : "药物名称",
+"extensions" : { }
+},
+"medicationStartTime" : {
+"type" : "string",
+"description" : "用药开始时间：yyyy-MM-dd",
+"extensions" : { }
+},
+"reason" : {
+"type" : "string",
+"description" : "停药原因",
+"extensions" : { }
+},
+"status" : {
+"type" : "integer",
+"description" : "是否停药：是1，否0，不选中-1",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "用药对象"
+},
+"病史类型信息对象" : {
+"title" : "病史类型信息对象",
+"type" : "object",
+"properties" : {
+"medicalHistoryDegree" : {
+"type" : "integer",
+"description" : "病史程度：痴呆病 mci-1 早期-2 中期-3 晚期-4 其他-5 否-0；   其他，是1，否0",
+"format" : "int32",
+"extensions" : { }
+},
+"medicalHistoryDescribe" : {
+"type" : "string",
+"description" : "病史类型描述其他",
+"extensions" : { }
+},
+"medicalHistoryIdentify" : {
+"type" : "integer",
+"description" : "病史类型唯一标识：老年痴呆-0，脑外伤-1，痴呆家族史-2",
+"format" : "int32",
+"extensions" : { }
+},
+"medicalHistoryName" : {
+"type" : "string",
+"description" : "病史名称：老年痴呆，脑外伤，痴呆家族史",
+"extensions" : { }
+},
+"medications" : {
+"type" : "array",
+"description" : "用药集合",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/用药对象",
+"extensions" : { }
+}
+}
+},
+"description" : "病史类型信息对象"
+},
+"筛选条件接收对象" : {
+"title" : "筛选条件接收对象",
+"required" : [ "pageNumber", "pageSize" ],
+"type" : "object",
+"properties" : {
+"educationTime" : {
+"type" : "string",
+"description" : "教育年限：按要求传入，比如0-12",
+"extensions" : { }
+},
+"jobType" : {
+"type" : "string",
+"description" : "职业",
+"extensions" : { }
+},
+"marrige" : {
+"type" : "string",
+"description" : "婚姻",
+"extensions" : { }
+},
+"medicalHistory" : {
+"type" : "integer",
+"description" : "病史：老年痴呆  mci-1 早期-2 中期-3 晚期-4 其他-5 否-0",
+"format" : "int32",
+"extensions" : { }
+},
+"medicationName" : {
+"type" : "string",
+"description" : "用药：名称比如美金刚",
+"extensions" : { }
+},
+"orderBy" : {
+"type" : "string",
+"description" : "排序方向，只能是：ASC或DESC",
+"extensions" : { }
+},
+"pageNumber" : {
+"type" : "integer",
+"description" : "当前第几页",
+"format" : "int32",
+"extensions" : { }
+},
+"pageSize" : {
+"type" : "integer",
+"description" : "每页多少条",
+"format" : "int32",
+"extensions" : { }
+},
+"patientAge" : {
+"type" : "string",
+"description" : "患者年龄：按要求传入，比如0-30",
+"extensions" : { }
+},
+"patientName" : {
+"type" : "string",
+"description" : "患者姓名",
+"extensions" : { }
+},
+"patientSex" : {
+"type" : "integer",
+"description" : "患者性别:男0，女1，全部 null",
+"format" : "int32",
+"extensions" : { }
+},
+"sortKey" : {
+"type" : "string",
+"description" : "排序字段：按原型要求传入创建时间或更新时间：createTime或updateTime",
+"extensions" : { }
+}
+},
+"description" : "筛选条件接收对象"
+},
+"编辑患者基本信息" : {
+"title" : "编辑患者基本信息",
+"required" : [ "education", "educationTime", "jobType", "marrige", "mobilephone", "patientAge", "patientBirthdate", "patientName", "patientSex", "uid" ],
+"type" : "object",
+"properties" : {
+"address" : {
+"type" : "string",
+"description" : "具体地址",
+"extensions" : { }
+},
+"education" : {
+"type" : "string",
+"description" : "教育程度：直接填写字符串，比如小学，初中，高中",
+"extensions" : { }
+},
+"educationTime" : {
+"type" : "integer",
+"description" : "教育年限",
+"format" : "int32",
+"extensions" : { }
+},
+"jobType" : {
+"type" : "string",
+"description" : "职业",
+"extensions" : { }
+},
+"marrige" : {
+"type" : "string",
+"description" : "婚姻状况：直接填写字符串，比如已婚，未婚",
+"extensions" : { }
+},
+"mobilephone" : {
+"type" : "string",
+"description" : "受试者手机号：必须是11位",
+"extensions" : { }
+},
+"patientAge" : {
+"type" : "integer",
+"description" : "年龄",
+"format" : "int32",
+"extensions" : { }
+},
+"patientBirthdate" : {
+"type" : "string",
+"description" : "出生日期：yyyy-MM-dd",
+"extensions" : { }
+},
+"patientIdnumber" : {
+"type" : "string",
+"description" : "身份证号",
+"extensions" : { }
+},
+"patientName" : {
+"type" : "string",
+"description" : "受试者姓名",
+"extensions" : { }
+},
+"patientSex" : {
+"type" : "integer",
+"description" : "性别：男：0，女：1",
+"format" : "int32",
+"extensions" : { }
+},
+"uid" : {
+"type" : "integer",
+"description" : "患者信息的唯一标识",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "编辑患者基本信息"
+},
+"编辑患者对象" : {
+"title" : "编辑患者对象",
+"type" : "object",
+"properties" : {
+"medicalHistoryType" : {
+"type" : "array",
+"description" : "病史类型信息",
+"extensions" : { },
+"items" : {
+"$ref" : "#/components/schemas/修改病史信息对象",
+"extensions" : { }
+}
+},
+"patient" : {
+"$ref" : "#/components/schemas/编辑患者基本信息",
+"extensions" : { }
+},
+"status" : {
+"type" : "integer",
+"description" : "状态值。0：编辑  1.新增或编辑",
+"format" : "int32",
+"extensions" : { }
+}
+},
+"description" : "编辑患者对象"
+},
+"自定义测评接收数据对象" : {
+"title" : "自定义测评接收数据对象",
+"required" : [ "assessmentPlanDescribe", "assessmentPlanName", "items" ],
+"type" : "object",
+"properties" : {
+"assessmentPlanDescribe" : {
+"type" : "string",
+"description" : "测评方案描述",
+"extensions" : { }
+},
+"assessmentPlanName" : {
+"type" : "string",
+"description" : "测评方案名称",
+"extensions" : { }
+},
+"items" : {
+"type" : "array",
+"description" : "测评项目UID集合",
+"extensions" : { },
+"items" : {
+"type" : "integer",
+"format" : "int32",
+"extensions" : { }
+}
+}
+},
+"description" : "自定义测评接收数据对象"
+},
+"问题反馈参数接收对象" : {
+"title" : "问题反馈参数接收对象",
+"required" : [ "feedbackDescribe" ],
+"type" : "object",
+"properties" : {
+"feedbackDescribe" : {
+"type" : "string",
+"description" : "反馈内容",
+"extensions" : { }
+}
+},
+"description" : "问题反馈参数接收对象"
+}
+}
+}
+}
+
+
