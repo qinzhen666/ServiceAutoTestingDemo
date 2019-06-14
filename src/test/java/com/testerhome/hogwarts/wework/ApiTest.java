@@ -23,7 +23,7 @@ class ApiTest {
     @Test
     void templateFromYaml() {
 
-        api.getResponseFromYaml("/api/list.yaml",null,"weichat").then().statusCode(200);
+        api.getResponseFromYaml("/api/list.yaml",null,"wechat").then().statusCode(200);
     }
 
     @Test
@@ -67,7 +67,7 @@ class ApiTest {
     @Test
     void getApiFromSwagger() throws NoSuchMethodException {
 
-        api.getApiFromSwagger("/api/SwaggerDemo.yaml","/data/swagger.json");
+        api.getApiFromSwagger("/api/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json");
     }
 
 
@@ -75,12 +75,12 @@ class ApiTest {
     void getResponseFromSwagger() {
 
         api.getResponseFromSwagger(
-                "/api/SwaggerDemo.yaml","/data/swagger.json",null,"brainPlatform");
+                "/api/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",null,"brainPlatformTest").then().statusCode(200);
     }
 
     @Test
     void getResponseFromYaml() {
-        api.getResponseFromYaml("/api/create.yaml",null,"weichat");
+        api.getResponseFromYaml("/api/create.yaml",null,"wechat");
     }
 }
 

@@ -1,21 +1,18 @@
 package com.testerhome.hogwarts.wework.brainPlatformApp;
 
-import com.testerhome.hogwarts.wework.Api;
-import com.testerhome.hogwarts.wework.Wework;
-import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
+import io.restassured.response.Response;
 
-public class ForgetManager extends Api {
-//    @Override
-//    public RequestSpecification getDefaultRequestSpecification(String tokenPattern) {
-//        RequestSpecification requestSpecification = super.getDefaultRequestSpecification(tokenPattern);
-//        requestSpecification.queryParam("Token", Wework.getToken(tokenPattern))
-//                .contentType(ContentType.JSON);
-//
-//        requestSpecification.filter((req, res, ctx) -> {
-//            //todo:对请求，响应做封装
-//            return ctx.next(req, res);
-//        });
-//        return requestSpecification;
-//    }
+import java.util.HashMap;
+
+public class ForgetManager extends brainPlatformApp {
+
+    String tokenPattern = "brainPlatform";
+// "password": "suirendanao@",
+//    "tel": "17988888888",
+//    "verifyCode": 0
+    public Response forgetPassword(){
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("_file","data/brainPlatform/forgetPassword,json");
+        return getResponseFromSwagger("/api/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",map,tokenPattern);
+    }
 }

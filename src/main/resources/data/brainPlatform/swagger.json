@@ -8,7 +8,7 @@
 "extensions" : { }
 },
 "servers" : [ {
-"url" : "//47.103.47.170:8080/brainPlatform"
+"url" : "//47.103.42.173:8080/brainPlatform"
 } ],
 "tags" : [ {
 "name" : "jenkins测试服务接口-运维",

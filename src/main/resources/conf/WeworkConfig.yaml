@@ -2,7 +2,7 @@ agentId: "1000002"
 secret: "FEONPjYvrJ67U63BW8E0czXL4jp17jf0f8P-8gjyYM0"
 corid: "wwf3beef22f578387a"
 contactSecret: "jYw-kCkdLmb8ox2BlxDt89q9jP4Zsn8BTU9IWP7ra6U"
-currentEnv: dev
+currentEnv: brainPlatformTest
 env:
   dev:
     "work.weixin.qq.com": "work.weixin.qq.com"
@@ -10,6 +10,8 @@ env:
   test:
     "work.weixin.qq.com": "140.207.127.79"
     "qyapi.weixin.qq.com": "qyapi.weixin.qq.com"
+  brainPlatformTest:
+    "192.168.1.103:8080/brainPlatform": "192.168.1.103:8080/brainPlatform"
 
 
     #"192.168.1.103:8080/brainPlatform" 这里写的是域名对应的不同环境的ip地址

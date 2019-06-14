@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
-    static String tokenPattern = "weichat";
+    static String tokenPattern = "wechat";
     @Test
     void listApp() {
         App app = new App();

@@ -24,7 +24,7 @@ public class Wework {
                 .extract().path("Token");
     }
 
-    public static String getToken(String tokenPattern){
+    public static String getToken(String tokenPattern)  {
         //todo:支持两种类型的token
         if (token == null){
             if (tokenPattern.equals("wechat")){
@@ -34,6 +34,9 @@ public class Wework {
             if(tokenPattern.equals("brainPlatform")){
                 token = getBrainPlatformAppToken();
                 return token;
+            }else {
+                System.out.println("[Error]未找到匹配的tokenPattern");
+                return null;
             }
         }
         return token;

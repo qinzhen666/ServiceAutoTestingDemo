@@ -39,13 +39,13 @@ public class Api {
 
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern) {
         RequestSpecification requestSpecification = given().log().all();
-        requestSpecification.queryParam("access_token", Wework.getToken(tokenPattern))
-                .contentType(ContentType.JSON);
-
-        requestSpecification.filter((req,res,ctx)->{
-            //todo:对请求，响应做封装
-            return ctx.next(req,res);
-        });
+//        requestSpecification.queryParam("access_token", Wework.getToken(tokenPattern))
+//                .contentType(ContentType.JSON);
+//
+//        requestSpecification.filter((req,res,ctx)->{
+//            //todo:对请求，响应做封装
+//            return ctx.next(req,res);
+//        });
         return requestSpecification;
     }
 
@@ -58,28 +58,29 @@ public class Api {
         return documentContext.jsonString();
     }
 
+
 //    public static String templateFromMustache(String path,HashMap<String,Object> map){
 //        MustacheFactory mf = new DefaultMustacheFactory();
 //        Mustache mustache = mf.compile("/data/create.mustache");
 //        mustache.execute(new PrintWriter(System.out), new Example()).flush());
 //    }
 
-    public Restful getApiFromYaml(String path){
+    public Restful getApiFromYaml(String yamlPath){
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
-            return mapper.readValue(WeworkConfig.class.getResourceAsStream(path), Restful.class);
+            return mapper.readValue(WeworkConfig.class.getResourceAsStream(yamlPath), Restful.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public Restful getApiFromHar(String path,String pattern){
+    public Restful getApiFromHar(String jsonPath,String pattern){
         HarReader harReader = new HarReader();
         try {
             Har har = harReader.readFromFile(new File(
                     URLDecoder.decode(
-                            getClass().getResource(path).getPath(),"utf-8"
+                            getClass().getResource(jsonPath).getPath(),"utf-8"
                     )));
             HarRequest request = new HarRequest();
             Boolean match = false;
@@ -117,13 +118,13 @@ public class Api {
         }
     }
 
-    public Restful getApiFromSwagger(String yamlPath,String path){
+    public Restful getApiFromSwagger(String yamlPath,String jsonPath){
         //todo:从swagger中获取接口数据
         HashMap<String,Object> map = new HashMap<>();
         Restful restful = getApiFromYaml(yamlPath);
         System.out.println(restful.uri);
         DocumentContext documentContext = JsonPath.parse(Api.class
-                .getResourceAsStream(path));
+                .getResourceAsStream(jsonPath));
         String queryString = documentContext.read(String.format("$.paths.%s.*.parameters", restful.uri)).toString();
         System.out.println(queryString);
 
@@ -177,7 +178,6 @@ public class Api {
     public Response getResponseFromApi(Restful restful,String tokenPattern){
 //        RequestSpecification requestSpecification = getDefaultRequestSpecification(tokenPattern);
         RequestSpecification requestSpecification = getDefaultRequestSpecification(tokenPattern);
-        System.out.println("requestSpecification是"+requestSpecification);
         if (restful.query != null) {
             restful.query.entrySet().forEach(entry -> {
                 requestSpecification.queryParam(entry.getKey(), entry.getValue());
@@ -209,22 +209,22 @@ public class Api {
 
     }
 
-    public Response getResponseFromYaml(String path, HashMap<String, Object> map,String tokenPattern) {
+    public Response getResponseFromYaml(String yamlPath, HashMap<String, Object> map,String tokenPattern) {
         //fixed:根据yaml生成接口定义并发送
-            Restful restful = getApiFromYaml(path);
+            Restful restful = getApiFromYaml(yamlPath);
             restful = updateApiFromMap(restful, map);
             return getResponseFromApi(restful,tokenPattern);
     }
 
-    public Response getResponseFromHar(String path, String pattern, HashMap<String,Object> map,String tokenPattern){
+    public Response getResponseFromHar(String jsonPath, String pattern, HashMap<String,Object> map,String tokenPattern){
         //fixed:支持从har文件中读取接口定义并发送
-        Restful restful = getApiFromHar(path, pattern);
+        Restful restful = getApiFromHar(jsonPath, pattern);
         restful = updateApiFromMap(restful,map);
         return getResponseFromApi(restful,tokenPattern);
     }
 
-    public Response getResponseFromSwagger(String yamlPath,String path, HashMap<String,Object> map,String tokenPattern){
-        Restful restful = getApiFromSwagger(yamlPath,path);
+    public Response getResponseFromSwagger(String yamlPath,String jsonPath, HashMap<String,Object> map,String tokenPattern){
+        Restful restful = getApiFromSwagger(yamlPath,jsonPath);
         restful = updateApiFromMap(restful,map);
         return getResponseFromApi(restful,tokenPattern);
     }
