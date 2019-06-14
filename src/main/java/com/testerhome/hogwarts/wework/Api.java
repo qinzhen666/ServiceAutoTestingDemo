@@ -39,13 +39,6 @@ public class Api {
 
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern) {
         RequestSpecification requestSpecification = given().log().all();
-//        requestSpecification.queryParam("access_token", Wework.getToken(tokenPattern))
-//                .contentType(ContentType.JSON);
-//
-//        requestSpecification.filter((req,res,ctx)->{
-//            //todo:对请求，响应做封装
-//            return ctx.next(req,res);
-//        });
         return requestSpecification;
     }
 
