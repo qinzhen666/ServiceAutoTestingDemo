@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.net.StandardSocketOptions;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.*;
@@ -45,6 +46,9 @@ public class Api {
     public static String template(String path, HashMap<String, Object> map) {
         DocumentContext documentContext = JsonPath.parse(Api.class
                 .getResourceAsStream(path));
+        if (map == null){
+            return documentContext.jsonString();
+        }
         map.entrySet().forEach(entry -> {
             documentContext.set(entry.getKey(), entry.getValue());
         });
@@ -136,9 +140,9 @@ public class Api {
         }
         if (documentContext.read("$.paths").toString().contains(restful.uri)){
             if (restful.method.toLowerCase().equals("post")){
-                restful.body = documentContext.read(
+                restful.body = JsonPath.parse(documentContext.read(
                         String.format("$.paths.%s.*.requestBody.body", restful.uri))
-                        .toString().split("\\[|\\]")[1];
+                        .toString().split("\\[|\\]")[1]).jsonString();
                 System.out.println(restful.body);
                 return restful;
             }

@@ -19,9 +19,9 @@ public class Wework {
         String body = "{\"userName\":\"18616210504\",\"password\":\"suiren123\",\"userType\":1}";
         return RestAssured.given().log().all()
                 .body(body)
-                .when().post("http://192.168.1.103:8080/brainPlatform/rest/user/login")
+                .when().post("http://47.103.47.170/brain/rest/user/login")
                 .then().log().all().statusCode(200)
-                .extract().path("Token");
+                .extract().response().getHeader("Token");
     }
 
     public static String getToken(String tokenPattern)  {

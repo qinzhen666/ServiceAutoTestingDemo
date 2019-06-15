@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberTest {
 
-    static String tokenPattern = "weichat";
+    static String tokenPattern = "wechat";
     static Random ra = new Random();
     static Member member;
     @BeforeEach

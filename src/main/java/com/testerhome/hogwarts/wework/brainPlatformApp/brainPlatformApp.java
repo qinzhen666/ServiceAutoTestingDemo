@@ -9,7 +9,7 @@ public class brainPlatformApp extends Api {
     @Override
     public RequestSpecification getDefaultRequestSpecification(String tokenPattern) {
         RequestSpecification requestSpecification = super.getDefaultRequestSpecification(tokenPattern);
-        requestSpecification.queryParam("Token", Wework.getToken(tokenPattern))
+        requestSpecification.header("Token", Wework.getToken(tokenPattern))
                 .contentType(ContentType.JSON);
 
         requestSpecification.filter((req, res, ctx) -> {
