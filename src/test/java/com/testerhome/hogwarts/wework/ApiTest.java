@@ -67,7 +67,7 @@ class ApiTest {
     @Test
     void getApiFromSwagger() throws NoSuchMethodException {
 
-        api.getApiFromSwagger("/api/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json");
+        api.getApiFromSwagger("/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json");
     }
 
 
@@ -75,7 +75,7 @@ class ApiTest {
     void getResponseFromSwagger() {
 
         api.getResponseFromSwagger(
-                "/api/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",null,"brainPlatformTest").then().statusCode(200);
+                "/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",null,"brainPlatformTest").then().statusCode(200);
     }
 
     @Test

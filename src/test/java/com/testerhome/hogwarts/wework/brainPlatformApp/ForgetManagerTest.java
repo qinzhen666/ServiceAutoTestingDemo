@@ -2,6 +2,9 @@ package com.testerhome.hogwarts.wework.brainPlatformApp;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.Matchers.equalTo;
+
 class ForgetManagerTest {
 
     ForgetManager forgetManager;
@@ -14,6 +17,6 @@ class ForgetManagerTest {
 
     @Test
     void forgetPassword() {
-        forgetManager.forgetPassword();
+        forgetManager.forgetPassword().then().statusCode(200).body("status",equalTo("0"));
     }
 }

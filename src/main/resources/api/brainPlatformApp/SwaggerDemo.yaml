@@ -1,4 +1,4 @@
 method: post
 #url: http://192.168.1.103:8080/brainPlatform/forget/forgetPassword
 url: http://47.103.47.170/brain/forget/forgetPassword
-uri: /forget/forgetPassword
+path: /forget/forgetPassword

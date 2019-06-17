@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
@@ -14,19 +12,17 @@ import de.sstoehr.harreader.HarReaderException;
 import de.sstoehr.harreader.model.Har;
 import de.sstoehr.harreader.model.HarEntry;
 import de.sstoehr.harreader.model.HarRequest;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.swagger.reader.SwaggerReader;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
-import java.net.StandardSocketOptions;
-import java.net.URL;
+import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
@@ -119,10 +115,10 @@ public class Api {
         //todo:从swagger中获取接口数据
         HashMap<String,Object> map = new HashMap<>();
         Restful restful = getApiFromYaml(yamlPath);
-        System.out.println(restful.uri);
+        System.out.println(restful.path);
         DocumentContext documentContext = JsonPath.parse(Api.class
                 .getResourceAsStream(jsonPath));
-        String queryString = documentContext.read(String.format("$.paths.%s.*.parameters", restful.uri)).toString();
+        String queryString = documentContext.read(String.format("$.paths.%s.*.parameters", restful.path)).toString();
         System.out.println(queryString);
 
         for (Object q : JSONArray.parseArray(queryString)){
@@ -132,16 +128,23 @@ public class Api {
                 //第一个都是token，不需要获取，从第二个数据开始获取queryParam
                 for (int i = 1; i < list.size(); i++) {
                     System.out.print(list.get(i)+"\t");
-                        map = new Gson().fromJson(String.valueOf(list.get(i)),HashMap.class);
-                        restful.query.put(map.get("name").toString(),map.get("value").toString());
-                        System.out.println("name=="+map.get("name"));
+                    map = new Gson().fromJson(String.valueOf(list.get(i)),HashMap.class);
+                    String  oldValue = map.get("value").toString();
+                    if (isNumeric(oldValue)){
+                        BigDecimal value = new BigDecimal(oldValue);
+//                        System.out.println("value="+value);
+                        restful.query.put(map.get("name").toString(),value);
+                    }else {
+                        restful.query.put(map.get("name").toString(),map.get("value"));
+                    }
+//                    System.out.println("name="+map.get("name"));
                     }
                 }
         }
-        if (documentContext.read("$.paths").toString().contains(restful.uri)){
+        if (documentContext.read("$.paths").toString().contains(restful.path)){
             if (restful.method.toLowerCase().equals("post")){
                 restful.body = JsonPath.parse(documentContext.read(
-                        String.format("$.paths.%s.*.requestBody.body", restful.uri))
+                        String.format("$.paths.%s.*.requestBody.body", restful.path))
                         .toString().split("\\[|\\]")[1]).jsonString();
                 System.out.println(restful.body);
                 return restful;
@@ -149,6 +152,26 @@ public class Api {
         }
         return restful;
     }
+
+    public static boolean isNumeric(String str) {
+        //第一种方法，如果是数字，创建new BigDecimal()时肯定不会报错，那就可以直接返回true
+        String bigStr;
+        try {
+            bigStr = new BigDecimal(str).toString();
+        } catch (Exception e) {
+            return false;//异常 说明包含非数字。
+        }
+
+        //第二种方法，正则匹配其中所有字段进行检查是否为数字
+        // 该正则表达式可以匹配所有的数字 包括负数
+        /*Pattern pattern = Pattern.compile("-?[0-9]+(\\.[0-9]+)?");
+        Matcher isNum = pattern.matcher(str); // matcher是全匹配
+        if (!isNum.matches()) {
+            return false;
+        }*/
+        return true;
+    }
+
 
     public Restful updateApiFromMap(Restful restful,HashMap<String,Object> map){
         if (map == null){
