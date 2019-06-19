@@ -1,6 +1,7 @@
 package com.testerhome.hogwarts.wework;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONPath;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
@@ -123,7 +124,6 @@ public class Api {
 
         for (Object q : JSONArray.parseArray(queryString)){
             ArrayList<Object> list = new Gson().fromJson(String.valueOf(q), ArrayList.class);
-            System.out.println(list.size());
             if (list.size() > 1){
                 //第一个都是token，不需要获取，从第二个数据开始获取queryParam
                 for (int i = 1; i < list.size(); i++) {
@@ -145,7 +145,8 @@ public class Api {
             if (restful.method.toLowerCase().equals("post")){
                 restful.body = JsonPath.parse(documentContext.read(
                         String.format("$.paths.%s.*.requestBody.body", restful.path))
-                        .toString().split("\\[|\\]")[1]).jsonString();
+                        .toString()).jsonString();
+                restful.body = JSONArray.parseArray(restful.body).get(0).toString();
                 System.out.println(restful.body);
                 return restful;
             }
@@ -191,7 +192,9 @@ public class Api {
                 map.remove("_file");
                 restful.body = template(filePath, map);
             }
-        }
+
+            }
+
         return restful;
     }
 
@@ -244,6 +247,7 @@ public class Api {
     }
 
     public Response getResponseFromSwagger(String yamlPath,String jsonPath, HashMap<String,Object> map,String tokenPattern){
+        //fixed:支持从Swagger文件中读取接口定义并发送
         Restful restful = getApiFromSwagger(yamlPath,jsonPath);
         restful = updateApiFromMap(restful,map);
         return getResponseFromApi(restful,tokenPattern);

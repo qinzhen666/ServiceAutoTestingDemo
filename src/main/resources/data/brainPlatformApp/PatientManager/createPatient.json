@@ -1,0 +1,26 @@
+{
+  "medicalHistoryType": [
+    {
+      "medicalHistoryDegree": 0,
+      "medicalHistoryIdentify": 0,
+      "medications": [
+        {
+          "medicationDegree": 0,
+          "status": 0
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "address": "上海市浦东新区张江镇牛顿路666号",
+    "education": "本科",
+    "educationTime": 6,
+    "jobType": "公务员",
+    "marrige": "已婚",
+    "mobilephone": "13956588889",
+    "patientAge": 0,
+    "patientBirthdate": "1965-05-04",
+    "patientName": "API测试患者",
+    "patientSex": 0
+  }
+}

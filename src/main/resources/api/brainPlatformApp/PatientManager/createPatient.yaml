@@ -1,0 +1,4 @@
+#新增患者档案
+url: http://47.103.47.170/brain/rest/patient/insert
+path: /rest/patient/insert
+method: post

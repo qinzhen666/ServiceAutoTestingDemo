@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class Member extends Contact{
 
     public Response create(HashMap<String,Object> map,String tokenPattern){
-        String body = template("/data/member.json",map);
+        String body = template("/data/weChat/member.json",map);
         return getDefaultRequestSpecification(tokenPattern)
                 .body(body)
                 .when().post("https://qyapi.weixin.qq.com/cgi-bin/user/create")
@@ -24,7 +24,7 @@ public class Member extends Contact{
     }
 
     public Response update(HashMap<String,Object> map,String tokenPattern){
-        String body = template("/data/member.json",map);
+        String body = template("/data/weChat/member.json",map);
         return getDefaultRequestSpecification(tokenPattern)
                 .body(body)
                 .when().post("https://qyapi.weixin.qq.com/cgi-bin/user/update")

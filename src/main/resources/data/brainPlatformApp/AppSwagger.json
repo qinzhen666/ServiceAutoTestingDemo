@@ -765,7 +765,7 @@
 "extensions" : { }
 }, {
 "name" : "patientName",
-  "value": "周五",
+  "value": "API测试患者",
 "in" : "query",
 "description" : "患者姓名",
 "required" : true,
@@ -776,7 +776,7 @@
 "extensions" : { }
 }, {
 "name" : "mobilephone",
-  "value":"18866665656",
+  "value":"13956588889",
 "in" : "query",
 "description" : "患者手机号",
 "required" : true,
@@ -821,6 +821,7 @@
 "extensions" : { }
 }, {
 "name" : "uid",
+  "value": 2,
 "in" : "query",
 "description" : "患者唯一标识",
 "required" : true,
@@ -866,6 +867,39 @@
 "extensions" : { }
 } ],
 "requestBody" : {
+  "body": {
+    "medicalHistoryType": [
+      {
+        "medicalHistoryDegree": 0,
+        "medicalHistoryDescribe": "",
+        "medicalHistoryIdentify": 0,
+        "medicalHistoryName": "",
+        "medications": [
+          {
+            "medicationDegree": 0,
+            "medicationEndTime": "",
+            "medicationName": "",
+            "medicationStartTime": "",
+            "reason": "",
+            "status": 0
+          }
+        ]
+      }
+    ],
+    "patient": {
+      "address": "上海市浦东新区张江镇牛顿路666号",
+      "education": "本科",
+      "educationTime": 6,
+      "jobType": "公务员",
+      "marrige": "已婚",
+      "mobilephone": "13956588889",
+      "patientAge": 0,
+      "patientBirthdate": "1965-05-04",
+      "patientIdnumber": "",
+      "patientName": "API测试患者",
+      "patientSex": 0
+    }
+  },
 "description" : "createPatient",
 "content" : {
 "application/json" : {

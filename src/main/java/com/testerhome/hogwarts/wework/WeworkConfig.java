@@ -25,7 +25,7 @@ public class WeworkConfig {
     public static WeworkConfig getInstance(){
         if (weworkConfig == null){
             weworkConfig =load("/conf/WeworkConfig.yaml");
-            System.out.println(weworkConfig.agentId);
+            System.out.println(weworkConfig.env);
         }
         return weworkConfig;
     }

@@ -45,7 +45,7 @@ class DepartmentTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/data/createWithDup.csv")
+    @CsvFileSource(resources = "/data/weChat/createWithDup.csv")
     void createWithDup(String name,Integer expectCode){
         department.create(name+random.nextLong(),"1").then().body("errcode",equalTo(0));
         department.create(name+random.nextLong(),"1").then().body("errcode",equalTo(expectCode));

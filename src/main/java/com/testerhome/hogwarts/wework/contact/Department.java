@@ -1,6 +1,5 @@
 package com.testerhome.hogwarts.wework.contact;
 
-import com.testerhome.hogwarts.wework.Api;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
@@ -18,7 +17,7 @@ public class Department extends Contact {
     public Response list(String id){
         HashMap<String,Object> map = new HashMap<>();
         map.put("id",id);
-        return getResponseFromYaml("/api/list.yaml",map,tokenPattern);
+        return getResponseFromYaml("/api/weChat/list.yaml",map,tokenPattern);
     }
 
     /**
@@ -32,13 +31,13 @@ public class Department extends Contact {
         HashMap<String,Object> map = new HashMap<>();
         map.put("name",name);
         map.put("parentid",parentid);
-        map.put("_file","/data/create.json");
-        return getResponseFromYaml("/api/create.yaml",map,tokenPattern);
+        map.put("_file", "/data/weChat/create.json");
+        return getResponseFromYaml("/api/weChat/create.yaml",map,tokenPattern);
     }
 
     public Response create(HashMap<String,Object> map){
-        map.put("_file","/data/create.json");
-        return getResponseFromYaml("/api/create.yaml",map,tokenPattern);
+        map.put("_file", "/data/weChat/create.json");
+        return getResponseFromYaml("/api/weChat/create.yaml",map,tokenPattern);
     }
 
     /**
@@ -49,7 +48,7 @@ public class Department extends Contact {
     public Response delete(String id){
     HashMap<String,Object> map = new HashMap<>();
     map.put("id",id);
-    return getResponseFromYaml("/api/delete.yaml",map,tokenPattern);
+    return getResponseFromYaml("/api/weChat/delete.yaml",map,tokenPattern);
     }
 
     public Response deleteAll(){
@@ -71,8 +70,8 @@ public class Department extends Contact {
         HashMap<String,Object> map = new HashMap<>();
         map.put("id",id);
         map.put("name",name);
-        map.put("_file","/data/update.json");
-        return getResponseFromYaml("/api/update.yaml",map,tokenPattern);
+        map.put("_file", "/data/weChat/update.json");
+        return getResponseFromYaml("/api/weChat/update.yaml",map,tokenPattern);
     }
 
     public Response update(HashMap<String,Object> map){

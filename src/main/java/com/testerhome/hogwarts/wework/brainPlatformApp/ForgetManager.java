@@ -12,7 +12,7 @@ public class ForgetManager extends brainPlatformApp {
 //    "verifyCode": 0
     public Response forgetPassword(){
         HashMap<String,Object> map = new HashMap<>();
-        map.put("_file", "/data/brainPlatform/forgetPassword.json");
-        return getResponseFromSwagger("/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",map,tokenPattern);
+        map.put("_file", "/data/brainPlatformApp/forgetPassword.json");
+        return getResponseFromSwagger("/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatformApp/AppSwagger.json",map,tokenPattern);
     }
 }

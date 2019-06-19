@@ -23,21 +23,21 @@ class ApiTest {
     @Test
     void templateFromYaml() {
 
-        api.getResponseFromYaml("/api/list.yaml",null,"wechat").then().statusCode(200);
+        api.getResponseFromYaml("/api/weChat/list.yaml",null,"wechat").then().statusCode(200);
     }
 
     @Test
     void getApiFromHar() {
 
-        System.out.println(api.getApiFromHar("/api/app.har.json", ".*tid=67.*").url);
-        System.out.println(api.getApiFromHar("/api/app.har.json", "tid=41").url);
+        System.out.println(api.getApiFromHar("/api/weChat/app.har.json", ".*tid=67.*").url);
+        System.out.println(api.getApiFromHar("/api/weChat/app.har.json", "tid=41").url);
     }
 
 
     @Test
     void getResponseFromHar() {
 
-        api.getResponseFromHar("/api/app.har.json",".*tid=67.*",null,"weichat");
+        api.getResponseFromHar("/api/weChat/app.har.json",".*tid=67.*",null,"weichat");
     }
 
     @Test
@@ -55,7 +55,7 @@ class ApiTest {
     @Test
     void readSwagger() throws JsonProcessingException {
         OpenAPI openAPI = new OpenAPIV3Parser().read("http://47.103.47.170:8080/brainPlatformApp/v2/api-docs?group=app");
-//        OpenAPI openAPI1 = new OpenAPIV3Parser().read("/data/swagger.json");
+//        OpenAPI openAPI1 = new OpenAPIV3Parser().read("/data/AppSwagger.json");
 //        Swagger swagger = new SwaggerParser().read("http://47.103.47.170:8080/brainPlatform/v2/api-docs?group=ap");
         String yamlOutput = Yaml.pretty().writeValueAsString(openAPI);
         String jsonOutput = Json.pretty(openAPI);
@@ -67,7 +67,7 @@ class ApiTest {
     @Test
     void getApiFromSwagger() throws NoSuchMethodException {
 
-        api.getApiFromSwagger("/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json");
+        api.getApiFromSwagger("/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatformApp/AppSwagger.json");
     }
 
 
@@ -75,12 +75,12 @@ class ApiTest {
     void getResponseFromSwagger() {
 
         api.getResponseFromSwagger(
-                "/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatform/swagger.json",null,"brainPlatformTest").then().statusCode(200);
+                "/api/brainPlatformApp/SwaggerDemo.yaml", "/data/brainPlatformApp/AppSwagger.json",null,"brainPlatformTest").then().statusCode(200);
     }
 
     @Test
     void getResponseFromYaml() {
-        api.getResponseFromYaml("/api/create.yaml",null,"wechat");
+        api.getResponseFromYaml("/api/weChat/create.yaml",null,"wechat");
     }
 }
 
