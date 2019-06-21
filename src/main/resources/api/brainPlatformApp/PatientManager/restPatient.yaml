@@ -1,4 +1,4 @@
-#根据患者姓名与手机号查询患者信息
-url: http://47.103.47.170/brain/rest/patient
+#根据患者姓名与手机号查询数据库中存在的患者信息
+url: http://ijixin.com/brain/rest/patient
 path: /rest/patient
 method: get

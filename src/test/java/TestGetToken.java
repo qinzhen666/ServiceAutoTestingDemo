@@ -1,5 +1,5 @@
-import com.testerhome.hogwarts.wework.Wework;
-import com.testerhome.hogwarts.wework.WeworkConfig;
+import com.greenvalley.brainPlatform.Wework;
+import com.greenvalley.brainPlatform.WeworkConfig;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,0 +1,36 @@
+{
+  "medicalHistoryType": [
+    {
+      "medicalHistoryDegree": 0,
+      "medicalHistoryDescribe": "",
+      "medicalHistoryIdentify": 0,
+      "medicalHistoryName": "",
+      "medications": [
+        {
+          "medicationDegree": 0,
+          "medicationEndTime": "",
+          "medicationName": "",
+          "medicationStartTime": "",
+          "reason": "",
+          "status": 0
+        }
+      ],
+      "uid": 1
+    }
+  ],
+  "patient": {
+    "address": "上海市上海市黄浦区",
+    "education": "硕士",
+    "educationTime": 6,
+    "jobType": "公务员",
+    "marrige": "已婚",
+    "mobilephone": "15555555555",
+    "patientAge": "",
+    "patientBirthdate": "1987-05-16",
+    "patientIdnumber": "",
+    "patientName": "酷奇包包",
+    "patientSex": 0,
+    "uid": 1
+  },
+  "status": 0
+}

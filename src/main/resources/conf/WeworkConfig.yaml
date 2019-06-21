@@ -2,7 +2,7 @@ agentId: "1000002"
 secret: "FEONPjYvrJ67U63BW8E0czXL4jp17jf0f8P-8gjyYM0"
 corid: "wwf3beef22f578387a"
 contactSecret: "jYw-kCkdLmb8ox2BlxDt89q9jP4Zsn8BTU9IWP7ra6U"
-currentEnv: brainPlatformDev
+currentEnv: brainPlatformTest
 env:
   dev:
     "work.weixin.qq.com": "work.weixin.qq.com"
@@ -13,9 +13,9 @@ env:
 
 
   brainPlatformTest:
-    "192.168.1.103:8080/brainPlatform": "192.168.1.103:8080"
+    "ijixin.com":  "192.168.1.103"      #"192.168.1.103:8080/brainPlatform"
   brainPlatformDev:
-    "ijixin.com": "ijixin.com"
+    "ijixin.com": "47.103.47.170"     # "ijixin.com"
 
 
     #"192.168.1.103:8080/brainPlatformApp" 这里写的是域名对应的不同环境的ip地址
