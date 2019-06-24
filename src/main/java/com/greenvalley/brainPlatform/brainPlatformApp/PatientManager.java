@@ -3,6 +3,8 @@ package com.greenvalley.brainPlatform.brainPlatformApp;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public class PatientManager extends brainPlatformApp{
 
@@ -43,6 +45,15 @@ public class PatientManager extends brainPlatformApp{
                 tokenPattern);
     }
 
+    public Response deleteAllPatients(){
+        List<Integer> idlist = getAllPatientInfoByList().then().log().all().extract().path("body.patient.uid");
+        System.out.println(idlist);
+        for (Integer uid: idlist) {
+            deletePatient(uid);
+        }
+        return null;
+    }
+
     public Response getAllPatientInfoByList(){
         HashMap<String,Object> map = new HashMap<>();
         map.put("_file", "/data/brainPlatformApp/PatientManager/getPatientByList.json");
@@ -67,10 +78,12 @@ public class PatientManager extends brainPlatformApp{
      * 1、选择“编辑患者”，若患者"patientName"和"mobilephone"都不变，则为编辑,"status"传入1
      * @return
      */
-    public Response updatePatient(String updateElem,String updateInfo,Integer status){
+    public Response updatePatient(String updateElem,String updateInfo,Integer status,String patientName,String mobilephone){
         HashMap<String,Object> map = new HashMap<>();
         map.put(String.format("$.patient.%s",updateElem),updateInfo);//"上海上海市徐汇区南站"
         map.put("status",status);
+        map.put("$.patient.patientName",patientName);
+        map.put("$.patient.mobilephone",mobilephone);
         map.put("_file","/data/brainPlatformApp/PatientManager/updatePatient.json");
         return getResponseFromYaml(
                 "/api/brainPlatformApp/PatientManager/updatePatient.yaml",
@@ -79,18 +92,19 @@ public class PatientManager extends brainPlatformApp{
         );
     }
 
-    /**
-     * 2、选择“编辑患者”，若患者"patientName"和"mobilephone"都任意一个发生改变，则为新增,"status"传入1
-     */
-    public Response updatePatient(String patientName,Integer status){
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("$.patient.patientName",patientName);
-        map.put("status",status);
-        map.put("_file","/data/brainPlatformApp/PatientManager/updatePatient.json");
-        return getResponseFromYaml(
-                "/api/brainPlatformApp/PatientManager/updatePatient.yaml",
-                map,
-                tokenPattern
-        );
+    public String getRandomAlphabet(){
+        String randomName = "";
+        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        char[] c = s.toCharArray();
+        Random random = new Random();
+        for( int i = 0; i < 8; i ++) {
+            randomName +=  c[random.nextInt(c.length)];
+//            System.out.println(c[random.nextInt(c.length)]);
+        }
+        return randomName;
     }
+
+
+
+
 }
