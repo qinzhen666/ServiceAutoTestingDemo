@@ -13,9 +13,9 @@ env:
 
 
   brainPlatformTest:
-    "ijixin.com":  "192.168.1.103"      #"192.168.1.103:8080/brainPlatform"
+    "ijiXXX.com":  "192.168.X.XXX"     
   brainPlatformDev:
-    "ijixin.com": "47.103.47.170"     # "ijixin.com"
+    "ijiXXX.com": "XXX"     
 
 
-    #"192.168.1.103:8080/brainPlatformApp" 这里写的是域名对应的不同环境的ip地址
+   
