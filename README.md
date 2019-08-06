@@ -1,0 +1,2 @@
+# ServiceAutoTestingDemo
+Java ApiAuto restAllure
