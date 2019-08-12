@@ -176,6 +176,7 @@ public class Api {
         if (restful.method.toLowerCase().contains("get")) {
             map.entrySet().forEach(entry -> {
                 restful.query.replace(entry.getKey(), entry.getValue());
+                System.out.println("==================================="+restful.query);
             });
         }
         if (restful.method.toLowerCase().contains("post")) {
@@ -194,7 +195,6 @@ public class Api {
     }
 
     public Response getResponseFromApi(Restful restful,String tokenPattern){
-//        RequestSpecification requestSpecification = getDefaultRequestSpecification(tokenPattern);
         RequestSpecification requestSpecification = getDefaultRequestSpecification(tokenPattern);
         if (restful.query != null) {
             restful.query.entrySet().forEach(entry -> {

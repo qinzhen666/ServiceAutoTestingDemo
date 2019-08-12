@@ -1,26 +1,139 @@
-{
-  "medicalHistoryType": [
-    {
-      "medicalHistoryDegree": 0,
-      "medicalHistoryIdentify": 0,
-      "medications": [
-        {
-          "medicationDegree": 0,
-          "status": 0
-        }
-      ]
+ {
+    "medicalHistoryType": [
+      {
+        "uid": 82,
+        "medications": [
+          {
+            "uid": 110,
+            "medicationName": "多奈哌齐",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 111,
+            "medicationName": "美金刚",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 112,
+            "medicationName": "卡巴拉汀",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 113,
+            "medicationName": "石杉碱甲",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 114,
+            "medicationName": "奥拉西坦",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 115,
+            "medicationName": "维生素B",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 116,
+            "medicationName": "叶酸",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 117,
+            "medicationName": "银杏叶产品",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 118,
+            "medicationName": "其他",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          },
+          {
+            "uid": 119,
+            "medicationName": "否",
+            "medicationDegree": 0,
+            "medicationStartTime": null,
+            "medicationEndTime": null,
+            "status": -1,
+            "reason": null
+          }
+        ],
+        "medicalHistoryName": "是否确诊为脑年痴呆",
+        "medicalHistoryIdentify": 0,
+        "medicalHistoryDegree": 0,
+        "medicalHistoryDescribe": null,
+        "createTime": ""
+      },
+      {
+        "uid": 83,
+        "medications": [
+
+        ],
+        "medicalHistoryName": "是否有脑外伤",
+        "medicalHistoryIdentify": 1,
+        "medicalHistoryDegree": 0,
+        "medicalHistoryDescribe": null,
+        "createTime": ""
+      },
+      {
+        "uid": 84,
+        "medications": [
+
+        ],
+        "medicalHistoryName": "是否有老年痴呆家族史",
+        "medicalHistoryIdentify": 2,
+        "medicalHistoryDegree": 0,
+        "medicalHistoryDescribe": null,
+        "createTime": ""
+      }
+    ],
+    "patient": {
+      "address": "上海市浦东新区张江镇牛顿路666号",
+      "education": "本科",
+      "educationTime": 6,
+      "jobType": "公务员",
+      "marrige": "已婚",
+      "mobilephone": "13956588889",
+      "patientAge": 0,
+      "patientBirthdate": "1965-05-04",
+      "patientName": "API测试患者",
+      "patientSex": 0
+      }
     }
-  ],
-  "patient": {
-    "address": "上海市浦东新区张江镇牛顿路666号",
-    "education": "本科",
-    "educationTime": 6,
-    "jobType": "公务员",
-    "marrige": "已婚",
-    "mobilephone": "13956588889",
-    "patientAge": 0,
-    "patientBirthdate": "1965-05-04",
-    "patientName": "API测试患者",
-    "patientSex": 0
-  }
-}
+

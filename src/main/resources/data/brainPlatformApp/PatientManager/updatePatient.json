@@ -1,21 +1,126 @@
 {
   "medicalHistoryType": [
     {
-      "medicalHistoryDegree": 0,
-      "medicalHistoryDescribe": "",
-      "medicalHistoryIdentify": 0,
-      "medicalHistoryName": "",
+      "uid": 82,
       "medications": [
         {
+          "uid": 110,
+          "medicationName": "多奈哌齐",
           "medicationDegree": 0,
-          "medicationEndTime": "",
-          "medicationName": "",
-          "medicationStartTime": "",
-          "reason": "",
-          "status": 0
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 111,
+          "medicationName": "美金刚",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 112,
+          "medicationName": "卡巴拉汀",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 113,
+          "medicationName": "石杉碱甲",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 114,
+          "medicationName": "奥拉西坦",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 115,
+          "medicationName": "维生素B",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 116,
+          "medicationName": "叶酸",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 117,
+          "medicationName": "银杏叶产品",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 118,
+          "medicationName": "其他",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
+        },
+        {
+          "uid": 119,
+          "medicationName": "否",
+          "medicationDegree": 0,
+          "medicationStartTime": null,
+          "medicationEndTime": null,
+          "status": -1,
+          "reason": null
         }
       ],
-      "uid": 1
+      "medicalHistoryName": "是否确诊为脑年痴呆",
+      "medicalHistoryIdentify": 0,
+      "medicalHistoryDegree": 0,
+      "medicalHistoryDescribe": null,
+      "createTime": ""
+    },
+    {
+      "uid": 83,
+      "medications": [
+
+      ],
+      "medicalHistoryName": "是否有脑外伤",
+      "medicalHistoryIdentify": 1,
+      "medicalHistoryDegree": 0,
+      "medicalHistoryDescribe": null,
+      "createTime": ""
+    },
+    {
+      "uid": 84,
+      "medications": [
+
+      ],
+      "medicalHistoryName": "是否有老年痴呆家族史",
+      "medicalHistoryIdentify": 2,
+      "medicalHistoryDegree": 0,
+      "medicalHistoryDescribe": null,
+      "createTime": ""
     }
   ],
   "patient": {

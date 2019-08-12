@@ -46,9 +46,9 @@ public class PatientManager extends brainPlatformApp{
     }
 
     public Response deleteAllPatients(){
-        List<Integer> idlist = getAllPatientInfoByList().then().log().all().extract().path("body.patient.uid");
-        System.out.println(idlist);
-        for (Integer uid: idlist) {
+        List<Integer> idList = getAllPatientInfoByList().then().log().all().extract().path("body.patient.uid");
+        System.out.println(idList);
+        for (Integer uid: idList) {
             deletePatient(uid);
         }
         return null;
@@ -78,9 +78,10 @@ public class PatientManager extends brainPlatformApp{
      * 1、选择“编辑患者”，若患者"patientName"和"mobilephone"都不变，则为编辑,"status"传入1
      * @return
      */
-    public Response updatePatient(String updateElem,String updateInfo,Integer status,String patientName,String mobilephone){
+    public Response updatePatient(String updateElem,String updateInfo,Integer uid,Integer status,String patientName,String mobilephone){
         HashMap<String,Object> map = new HashMap<>();
         map.put(String.format("$.patient.%s",updateElem),updateInfo);//"上海上海市徐汇区南站"
+        map.put("$..patient.uid",uid);
         map.put("status",status);
         map.put("$.patient.patientName",patientName);
         map.put("$.patient.mobilephone",mobilephone);

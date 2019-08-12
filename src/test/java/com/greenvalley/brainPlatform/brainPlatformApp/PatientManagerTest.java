@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static io.restassured.path.json.JsonPath.from;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItem;
 
@@ -45,7 +46,7 @@ class PatientManagerTest {
         for (int i = 0;i < 8; i++){
             mobilephone+= random.nextInt(9);
         }
-        patientManager.createPatient("patientName",mobilephone)
+        patientManager.createPatient(patientName,mobilephone)
                 .then().statusCode(200).body("status",equalTo("1"));
     }
 
@@ -59,8 +60,7 @@ class PatientManagerTest {
         for (int i = 0;i < 8; i++){
             mobilephone+= random.nextInt(9);
         }
-        Integer uid = patientManager.createPatient(patientName,mobilephone)
-                .path("body.patient.uid");
+        Integer uid = patientManager.createPatient(patientName,mobilephone).path("body.patient.uid");
         patientManager.deletePatient(uid).then().statusCode(200)
                 .body("status",equalTo("1"));
         //检查是否删除
@@ -104,9 +104,14 @@ class PatientManagerTest {
         for (int i = 0;i < 8; i++){
             mobilephone+= random.nextInt(9);
         }
-        patientName = patientManager.createPatient(patientName,mobilephone)
-                .path("body.patient.patientName").toString();
-        patientManager.updatePatient("address","上海市上海徐汇区南站",1,patientName,mobilephone)
+        String json = patientManager.createPatient(patientName,mobilephone).asString();
+        Integer uid = from(json).get("body.patient.uid");
+        patientName = from(json).get("body.patient.patientName");
+        patientManager.updatePatient("address","上海市上海徐汇区南站",
+                uid,
+                1,
+                patientName,
+                mobilephone)
                 .then().statusCode(200)
                 .body("status",equalTo("1"));
         patientManager.getPatientInfo(patientName,mobilephone)
@@ -125,11 +130,11 @@ class PatientManagerTest {
         for (int i = 0;i < 8; i++){
             mobilephone+= random.nextInt(9);
         }
-        patientName = patientManager.createPatient(patientName,mobilephone)
-                .path("body.patient.patientName").toString();
+        String json = patientManager.createPatient(patientName,mobilephone).asString();
+        Integer uid = from(json).get("body.patient.uid");
         String updateName = patientName+random.nextInt(9);
 
-        patientManager.updatePatient("address","上海市浦东新区张江镇牛顿路666号",1,updateName,mobilephone)
+        patientManager.updatePatient("address","上海市浦东新区张江镇牛顿路666号",uid,1,updateName,mobilephone)
                 .then().statusCode(200)
                 .body("status",equalTo("1"));
 
@@ -151,9 +156,9 @@ class PatientManagerTest {
         for (int i = 0;i < 8; i++){
             mobilephone+= random.nextInt(9);
         }
-        patientName = patientManager.createPatient(patientName,mobilephone)
-                .path("body.patient.patientName").toString();
-        patientManager.updatePatient("address","杭州西湖区",0,patientName,mobilephone)
+        String json = patientManager.createPatient(patientName,mobilephone).asString();
+        Integer uid = from(json).get("body.patient.uid");
+        patientManager.updatePatient("address","杭州西湖区",uid,0,patientName,mobilephone)
                 .then().statusCode(200)
                 .body("body.patient.patientName",equalTo(patientName))
                 .body("body.patient.mobilephone",equalTo(mobilephone))
